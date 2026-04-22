@@ -6,34 +6,49 @@ Save all your S3 CLI command outputs here.
 
 ## Upload Commands
 
-```bash
-$ aws s3 cp cli-test.txt s3://your-name-bootcamp-demo-2024/
-[Paste output]
-```
+francesmacbook@MacBookAir ~ % echo hello from cli > cli-test.txt
+francesmacbook@MacBookAir ~ % aws s3 cp cli-test.txt s3://startup-development-team-cloud-storage/
+upload: ./cli-test.txt to s3://startup-development-team-cloud-storage/cli-test.txt
+francesmacbook@MacBookAir ~ % aws s3 cp cli.text. txt s3://startup-development-team-cloud-storage/documents
+
+aws: [ERROR]: An error occurred (ParamValidation): Unknown options: s3://startup-development-team-cloud-storage/documents
+francesmacbook@MacBookAir ~ % aws s3 cp cli-test.txt s3://startup-development-team-cloud-storage/documents/
+upload: ./cli-test.txt to s3://startup-development-team-cloud-storage/documents/cli-test.txt
+francesmacbook@MacBookAir ~ % aws s3 ls s3://startup-development-team-cloud-storage/
+                           PRE backups/
+                           PRE documents/
+                           PRE images/
+                           PRE website-assets/
+2026-04-22 09:10:12       8394 README.txt
+2026-04-22 09:10:11       8394 Resume.pdf
+2026-04-22 10:25:31         15 cli-test.txt
+2026-04-22 09:10:10       7445 logo.png
 
 ---
 
 ## List Commands
 
-```bash
-$ aws s3 ls s3://your-name-bootcamp-demo-2024/
-[Paste output]
-```
+
+francesmacbook@MacBookAir ~ % aws s3 ls s3://startup-development-team-cloud-storage/documents
+                           PRE documents/
 
 ---
 
 ## Sync Commands
 
-```bash
-$ aws s3 sync local-project/ s3://your-name-bootcamp-demo-2024/project/
-[Paste output]
-```
+francesmacbook@MacBookAir ~ % aws s3 sync local-project/ s3://startup-development-team-cloud-storage/project/
+upload: local-project/assets/index.html to s3://startup-development-team-cloud-storage/project/assets/index.html
+upload: local-project/docs/README.md to s3://startup-development-team-cloud-storage/project/docs/README.md
+upload: local-project/src/app.js to s3://startup-development-team-cloud-storage/project/src/app.js
+francesmacbook@MacBookAir ~ % aws s3 ls s3://startup-development-team-cloud-storage/project/ --recursive
+
+2026-04-22 13:38:12         14 project/assets/index.html
+2026-04-22 13:38:12         16 project/docs/README.md
+2026-04-22 13:38:12         22 project/src/app.js
 
 ---
 
 ## Delete Commands
 
-```bash
-$ aws s3 rm s3://your-name-bootcamp-demo-2024/cli-test.txt
-[Paste output]
-```
+francesmacbook@MacBookAir ~ % aws s3 rm s3://startup-development-team-cloud-storage/Resume.pdf
+delete: s3://startup-development-team-cloud-storage/Resume.pdf
