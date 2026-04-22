@@ -1,7 +1,7 @@
 # Create S3 Bucket Lab - Solution
 
-**Student Name:** [Your Name]  
-**Date:** [Date]
+**Student Name:** France van Maanen
+**Date:** 22 April 2026
 
 ---
 
