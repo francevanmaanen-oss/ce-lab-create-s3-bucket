@@ -30,18 +30,35 @@ francesmacbook@MacBookAir ~ % aws s3 ls s3://startup-development-team-cloud-stor
 
 ---
 
-## Sync Commands
-
-```bash
-$ aws s3 sync local-project/ s3://your-name-bootcamp-demo-2024/project/
-[Paste output]
-```
-
----
-
 ## Delete Commands
 
-```bash
-$ aws s3 rm s3://your-name-bootcamp-demo-2024/cli-test.txt
-[Paste output]
-```
+francesmacbook@MacBookAir ~ % aws s3 rm s3://startup-development-team-cloud-storage/Resume.pdf
+delete: s3://startup-development-team-cloud-storage/Resume.pdf
+
+
+## Create Local Project Structure
+
+francesmacbook@MacBookAir ~ % % echo "console.log('Hello');" > local-project/src/app.js
+echo "# Documentation" > local-project/docs/README.md
+fg: no current job
+francesmacbook@MacBookAir ~ % echo '<!-- HTML -->' > local-project/assets/index.html
+francesmacbook@MacBookAir ~ % mkdir -p local-project/{src,docs,assets}
+echo "console.log('Hello');" > local-project/src/app.js
+echo "# Documentation" > local-project/docs/README.md
+echo '<!-- HTML -->' > local-project/assets/index.html
+
+## Sync Commands
+francesmacbook@MacBookAir ~ % aws s3 sync local-project/ s3://startup-development-team-cloud-storage/project/
+upload: local-project/assets/index.html to s3://startup-development-team-cloud-storage/project/assets/index.html
+upload: local-project/docs/README.md to s3://startup-development-team-cloud-storage/project/docs/README.md
+upload: local-project/src/app.js to s3://startup-development-team-cloud-storage/project/src/app.js
+francesmacbook@MacBookAir ~ % aws s3 ls s3://startup-development-team-cloud-storage/project/ --recursive
+
+2026-04-22 13:38:12         14 project/assets/index.html
+2026-04-22 13:38:12         16 project/docs/README.md
+2026-04-22 13:38:12         22 project/src/app.js
+
+## Modify
+francesmacbook@MacBookAir ~ % echo "console.log('Updated');" > local-project/src/app.js
+francesmacbook@MacBookAir ~ % aws s3 sync local-project/ s3://startup-development-team-cloud-storage/project/
+upload: local-project/src/app.js to s3://startup-development-team-cloud-storage/project/src/app.js
