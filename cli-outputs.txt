@@ -7,8 +7,9 @@ Save all your S3 CLI command outputs here.
 ## Upload Commands
 
 ```bash
-$ aws s3 cp cli-test.txt s3://your-name-bootcamp-demo-2024/
-[Paste output]
+aws s3 cp cli-test.txt s3://startup-development-team-cloud-storage/documents/
+upload: ./cli-test.txt to s3://startup-development-team-cloud-storage/documents/cli-test.txt
+
 ```
 
 ---
@@ -16,8 +17,15 @@ $ aws s3 cp cli-test.txt s3://your-name-bootcamp-demo-2024/
 ## List Commands
 
 ```bash
-$ aws s3 ls s3://your-name-bootcamp-demo-2024/
-[Paste output]
+francesmacbook@MacBookAir ~ % aws s3 ls s3://startup-development-team-cloud-storage/
+                           PRE backups/
+                           PRE documents/
+                           PRE images/
+                           PRE website-assets/
+2026-04-22 09:10:12       8394 README.txt
+2026-04-22 09:10:11       8394 Resume.pdf
+2026-04-22 10:25:31         15 cli-test.txt
+2026-04-22 09:10:10       7445 logo.png
 ```
 
 ---
